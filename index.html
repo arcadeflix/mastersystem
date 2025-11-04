@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Sega Master System</title>
+    <title>Arcadeflix - Emulador Master System</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #game-container {
+            width: 90%;
+            max-width: 800px;
+            height: 90%;
+            background: #111;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bem-vindo ao Emulador!</h1>
-    <p>Essa é a página inicial do seu repositório.</p>
+    <div id="game-container"></div>
+
+    <!-- Script do EmulatorJS -->
+    <script src="https://cdn.emulatorjs.com/latest/emulator.js"></script>
+    <script>
+        // URL da ROM no próprio repositório
+        const romUrl = "Alex_Kidd_in_Radaxian_Rumble_1_03d.zip"; // Certifique-se que esse é o nome exato do arquivo
+
+        // Sistema a ser emulado (SMS = Sega Master System)
+        const system = "sms";
+
+        // Inicializar o emulador
+        const emulator = new EmulatorJS();
+        emulator.load({
+            romUrl: romUrl,
+            container: document.getElementById('game-container'),
+            system: system,
+            resolution: "standard"
+        });
+    </script>
 </body>
 </html>
+
